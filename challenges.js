@@ -297,7 +297,15 @@ formatWithPadding(1234, '*', 3) //=> "1234"
 -----------------------------------------------------------------------------*/
 // Your solution for 10-formatWithPadding here:
 
-
+function formatWithPadding(num1, str, numLength) {
+  if (num1.length >= numLength) {
+    return num1 
+  } else if (num1.length < numLength) {
+    return (num1 + str)(+num1.length)
+  } else {
+    return (str + num1).substring(0, num1.length);
+  }
+}
 
 
 
