@@ -218,8 +218,6 @@ function removeEnds(str) {
   }
 }
 
-
-
 /*-----------------------------------------------------------------------------
 Challenge: 09-charCount
 
@@ -258,6 +256,17 @@ charCount('Today is fantastic!')
 -----------------------------------------------------------------------------*/
 // Your solution for 09-charCount here:
 
+function charCount(str) {
+  const count = {}
+  for (let i = 0; i < str.length; i++) {
+    if (count[str[i]] !== undefined) {
+      count[str[i]]++
+    } else {
+      count[str[i]] = 1
+    }
+  }
+  return count
+}
 
 
 
