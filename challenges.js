@@ -297,17 +297,25 @@ formatWithPadding(1234, '*', 3) //=> "1234"
 -----------------------------------------------------------------------------*/
 // Your solution for 10-formatWithPadding here:
 
-function formatWithPadding(num1, str, numLength) {
-  if (num1.length >= numLength) {
-    return num1 
-  } else if (num1.length < numLength) {
-    return (num1 + str)(+num1.length)
+// function formatWithPadding(num1, str, numLength) {
+//   if (num1.length >= numLength) {
+//     return num1 
+//   } else if (num1.length < numLength) {
+//     return (num1 + str)(+num1.length)
+//   } else {
+//     return (str + num1).substring(0, num1.length);
+//   }
+// }
+
+function formatWithPadding(num, char, numlength) {
+  const numStr = num.toString()
+  const paddingLength = numlength - numStr.length
+  if (paddingLength <= 0) {
+    return numStr
   } else {
-    return (str + num1).substring(0, num1.length);
+    return char.repeat(paddingLength) + numStr
   }
 }
-
-
 
 /*-----------------------------------------------------------------------------
 Challenge: 11-isPalindrome
@@ -363,7 +371,17 @@ hammingDistance('abc', 'ab') //=> NaN
 -----------------------------------------------------------------------------*/
 // Your solution for 12-hammingDistance here:
 
-
+function hammingDistance(str1, str2) {
+  let charCount = 0
+  for (let ch of str1) {
+  if (str2.includes(ch) && str1.includes(ch)) {
+    charCount++
+  } 
+  return charCount
+// } else if (str1.length) !== (str2.length) {
+//     return NaN
+//     }
+  }
 
 
 
