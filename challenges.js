@@ -87,6 +87,9 @@ sumNumbers([]) //=> 0
 -----------------------------------------------------------------------------*/
 // Your solution for 03-sumNumbers here:
 
+function sumNumbers() {
+
+}
 
 
 
@@ -341,7 +344,16 @@ isPalindrome('') //=> true
 -----------------------------------------------------------------------------*/
 // Your solution for 11-isPalindrome here:
 
-
+function isPalindrome(str) {
+  str = str.toLowerCase().replace(/(\W)|(\_)/g,"").split("");
+  for (let i = 0; i < str.length; i++) {
+    //if(str[0] !== str[15 - 1 - 0])? => if("a"  !==  "a")? // false
+      if (str[i] !== str[str.length - 1 -i]) {
+        return false;
+      }
+    }
+    return true;
+  }
 
 
 
@@ -372,17 +384,17 @@ hammingDistance('abc', 'ab') //=> NaN
 // Your solution for 12-hammingDistance here:
 
 function hammingDistance(str1, str2) {
-  let charCount = 0
-  for (let ch of str1) {
-  if (str2.includes(ch) && str1.includes(ch)) {
-    charCount++
-  } 
-  return charCount
-// } else if (str1.length) !== (str2.length) {
-//     return NaN
-//     }
+  let symbolCount = 0;
+  for (let i = 0; i < str1.length; i++) {
+    if (str1[i] !== str2[i]) {
+      symbolCount++
+    }
   }
-
+    if (str1.length !== str2.length) {
+      return NaN
+    }
+    return symbolCount
+}
 
 
 /*-----------------------------------------------------------------------------
@@ -408,7 +420,13 @@ mumble('!A 2') //=> '!-AA-   -2222'
 -----------------------------------------------------------------------------*/
 // Your solution for 13-mumble here:
 
-
+function mumble(str) {
+  let result = []
+  for (let i = 0; i < str.length; i++) {
+    result.push(str[i].repeat(i + 1))
+  }
+  return result.join('-')
+}
 
 
 
@@ -464,7 +482,14 @@ mergeObjects({a: 1, b: 2, c: 3}, {d: 4}, {b: 22, d: 44})
 -----------------------------------------------------------------------------*/
 // Your solution for 15-mergeObjects here:
 
-
+function mergeObjects(obj1, ...objs) {
+  objs.forEach(obj => {
+    for (let pair in obj) {
+      obj1[pair] = obj[pair]
+    }
+  })
+  return obj1
+}
 
 
 
