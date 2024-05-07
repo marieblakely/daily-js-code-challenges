@@ -87,10 +87,13 @@ sumNumbers([]) //=> 0
 -----------------------------------------------------------------------------*/
 // Your solution for 03-sumNumbers here:
 
-function sumNumbers() {
-
+function sumNumbers(num) {
+  let arraySum = 0
+  for (let i = 0; i < num.length; i++) {
+    arraySum += num[i];
+  } 
+  return arraySum 
 }
-
 
 
 
@@ -113,6 +116,14 @@ addList(1,50,1.23) //=> 52.23
 addList(7,-12) //=> -5
 -----------------------------------------------------------------------------*/
 // Your solution for 04-addList here:
+
+function addList(...nums) {
+  if (nums.length === 0) {
+    return 0
+  } else {
+    return nums.reduce((sum, num) => sum + num, 0)
+  }
+} 
 
 
 
@@ -141,6 +152,13 @@ computeRemainder(10.5, 3) //=> 1.5
 -----------------------------------------------------------------------------*/
 // Your solution for 05-computeRemainder:
 
+function computeRemainder(num1, num2) {
+  if (num2 === 0) {
+    return Infinity
+  } else  {
+    return num1 % num2
+  } 
+}
 
 
 
@@ -168,7 +186,16 @@ range(5,2) //=> "First argument must be less than second"
 -----------------------------------------------------------------------------*/
 // Your solution for 06-range here:
 
-
+function range(num1, num2) {
+  let result = []
+  for (let i = num1; i < num2; i++) {
+    result.push(i)
+  } 
+  if (num1 > num2) {
+    return "First argument must be less than second"
+  }
+  return result
+}
 
 
 
@@ -451,7 +478,9 @@ fromPairs([ ['name', 'Sam"], ['age', 24], ['name', 'Sally'] ]) //=> { name: "Sal
 -----------------------------------------------------------------------------*/
 // Your solution for 14-fromPairs here:
 
-
+function fromPairs() {
+  
+}
 
 
 
